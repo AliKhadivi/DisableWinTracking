@@ -31,7 +31,6 @@ from wx.lib.itemspicker import (
     IP_REMOVE_FROM_CHOICES,
 )
 
-import dwt_about
 import dwt_util
 
 
@@ -66,7 +65,7 @@ class ConsoleDialog(wx.Dialog):
         button_sizer = self.CreateButtonSizer(wx.OK | wx.CANCEL)
 
         report_button = wx.FindWindowById(wx.ID_CANCEL, self)
-        report_button.SetLabel("Report an issue")
+        report_button.SetLabel("Nothing")
 
         console_sizer.Add(
             console_box, 1, wx.LEFT | wx.RIGHT | wx.EXPAND | wx.ALIGN_TOP, 5
@@ -81,9 +80,7 @@ class ConsoleDialog(wx.Dialog):
         self.SetSizer(top_sizer)
 
     def submit_issue(self, event):
-        webbrowser.open_new_tab(
-            "https://github.com/bitlog2/DisableWinTracking/issues/new"
-        )
+        print("issue")
 
 
 class MainFrame(wx.Frame):
@@ -101,8 +98,6 @@ class MainFrame(wx.Frame):
         settings = file_menu.Append(wx.ID_SETUP, "&Settings", "DWT settings")
 
         help_menu = wx.Menu()
-        about = help_menu.Append(wx.ID_ABOUT, "&About", "About DWT")
-        licenses = help_menu.Append(wx.ID_ANY, "&Licenses", "Open-source licenses")
 
         menu_bar = wx.MenuBar()
         menu_bar.Append(file_menu, "&File")
@@ -112,9 +107,7 @@ class MainFrame(wx.Frame):
         check_elevated()
 
         self.SetIcon(wx.Icon(sys.executable, wx.BITMAP_TYPE_ICO))
-        self.Bind(wx.EVT_MENU, lambda x: dwt_about.about_dialog(self), about)
         self.Bind(wx.EVT_MENU, panel.settings, settings)
-        self.Bind(wx.EVT_MENU, lambda x: dwt_about.Licenses(self), licenses)
         self.Layout()
 
 
@@ -521,104 +514,104 @@ class MainPanel(wx.Panel):
             "s.gateway.messenger.live.com",
 
             "mobile.events.data.microsoft.com",
-"browser.events.data.microsoft.com",
-"watson.events.data.microsoft.com",
-"eu-office.events.data.microsoft.com",
-"data-ai.microsoft.com",
-"displaycatalog.mp.microsoft.com",
-"storeedgefd.dsx.mp.microsoft.com",
-"fe3cr.delivery.mp.microsoft.com",
-"slscr.update.microsoft.com",
-"client.wns.windows.com",
-"fp.msedge.net",
-"fp-afd.azurefd.us",
-"fp-afd-nocache.azureedge.net",
-"dns.msftncsi.com",
-"ipv6.msftconnecttest.com",
-"login.microsoftonline.com",
-"js.monitor.azure.com",
-"events.gfe.nvidia.com",
-"rum8.perf.linkedin.com",
-"ecs.office.com",
-"config.edge.skype.com",
-"officeclient.microsoft.com",
-"storecatalogrevocation.storequality.microsoft.com",
-"cs.dds.microsoft.com.pool.ntp.org",
-"clientnotification-userprodscus1-3.servicebus.windows.net",
-"assets.adobedtm.com",
-"inputuggestions.msdxcdn.microsoft.com",
-"push.services.mozilla.com",
-"sync-1-us-west1-g.sync.services.mozilla.com",
-"prod.sync.prod.webservices.mozgcp.net",
-"normandy.cdn.mozilla.net",
-"normandy.tombstone.experimenter.prod.webservices.mozgcp.net",
-"classify-client.services.mozilla.com",
-"prod.classify-client.prod.webservices.mozgcp.net",
-"token.services.mozilla.com",
-"prod-tokenserver.sync.prod.webservices.mozgcp.net",
-"browser.events.data.microsoft.com",
-"content-signature-chains.prod.autograph.services.mozaws.net",
-"content-signature-2.cdn.mozilla.net",
-"default.exp-tas.com",
-"update.googleapis.com",
-"optimizationguide-pa.googleapis.com",
-"chrome-devtools-frontend.appspot.com",
-"www.googleadservices.com",
-"www.googletagmanager.com",
-"vscode-sync.trafficmanager.net",
-"marketplace.visualstudio.com",
-"app.vssps.visualstudio.com",
-"api.vstsusers.visualstudio.com",
-"userprodweu1.vstsusers.visualstudio.com",
-"userprodeus23.vstsusers.visualstudio.com",
-"events.gfe.nvidia.com",
-"lightstep.kaizen.nvidia.com",
-"gx-target-experiments-frontend-api.gx.nvidia.com",
-"gfwsl.geforce.com",
-"static.nvidiagrid.net",
-"widget.intercom.io",
-"js.intercomcdn.com",
-"api-iam.intercom.io",
-"nexus-websocket-a.intercom.io",
-"ad.foxitsoftware.com",
-"cws.connectedpdf.com",
-"jaeger-dashboard-us.connectedpdf.com",
-"api.segment.io",
-"assets.adobedtm.com",
-"rum8.perf.linkedin.com",
-"rum.hlx.page",
-"sentry.io",
-"cdn-dynmedia-1.microsoft.com",
-"targetednotifications-tm.trafficmanager.net",
-"ctldl.windowsupdate.com",
-"cdn.winget.microsoft.com",
-"download.windowsupdate.com",
-"fe2cr.update.microsoft.com",
-"au.download.windowsupdate.com",
-"slscr.update.microsoft.com",
-"vsblobprodscussu5shard67.blob.core.windows.net",
-"vsblob.vsassets.io",
-"config.edge.skype.com",
-"binaries.templates.cdn.office.net",
-"metadata.templates.cdn.office.net",
-"cdn.create.microsoft.com",
-"store-images.microsoft.com",
-"store-images.s-microsoft.com",
-"akamai.net",
-"akamaiedge.net",
-"akamaized.net",
-"edge.microsoft.com",
-"static.edge.microsoftapp.net",
-"img-prod-cms-rt-microsoft-com.akamaized.net",
-"ipw.gfdv54cvghhgfhgj-njhgj64.info",
-"kalhivi-clinic.com",
-"vikasdiagnostics.com",
-"ahuhastanesi.com",
-"g.bing.com",
-"b9d9700dffccce4cf8ffe8e5ef96d0c6.azr.footprintdns.com",
-"ee6dfaa2595125c04221c58f9c46c111.clo.footprintdns.com",
-"6251144b97aa4d25499f7a4406dd886b.azr.footprintdns.com",
-"00617acd4f49453b83d7bed17af88734.azr.footprintdns.com",
+            "browser.events.data.microsoft.com",
+            "watson.events.data.microsoft.com",
+            "eu-office.events.data.microsoft.com",
+            "data-ai.microsoft.com",
+            "displaycatalog.mp.microsoft.com",
+            "storeedgefd.dsx.mp.microsoft.com",
+            "fe3cr.delivery.mp.microsoft.com",
+            "slscr.update.microsoft.com",
+            "client.wns.windows.com",
+            "fp.msedge.net",
+            "fp-afd.azurefd.us",
+            "fp-afd-nocache.azureedge.net",
+            "dns.msftncsi.com",
+            "ipv6.msftconnecttest.com",
+            "login.microsoftonline.com",
+            "js.monitor.azure.com",
+            "events.gfe.nvidia.com",
+            "rum8.perf.linkedin.com",
+            "ecs.office.com",
+            "config.edge.skype.com",
+            "officeclient.microsoft.com",
+            "storecatalogrevocation.storequality.microsoft.com",
+            "cs.dds.microsoft.com.pool.ntp.org",
+            "clientnotification-userprodscus1-3.servicebus.windows.net",
+            "assets.adobedtm.com",
+            "inputuggestions.msdxcdn.microsoft.com",
+            "push.services.mozilla.com",
+            "sync-1-us-west1-g.sync.services.mozilla.com",
+            "prod.sync.prod.webservices.mozgcp.net",
+            "normandy.cdn.mozilla.net",
+            "normandy.tombstone.experimenter.prod.webservices.mozgcp.net",
+            "classify-client.services.mozilla.com",
+            "prod.classify-client.prod.webservices.mozgcp.net",
+            "token.services.mozilla.com",
+            "prod-tokenserver.sync.prod.webservices.mozgcp.net",
+            "browser.events.data.microsoft.com",
+            "content-signature-chains.prod.autograph.services.mozaws.net",
+            "content-signature-2.cdn.mozilla.net",
+            "default.exp-tas.com",
+            "update.googleapis.com",
+            "optimizationguide-pa.googleapis.com",
+            "chrome-devtools-frontend.appspot.com",
+            "www.googleadservices.com",
+            "www.googletagmanager.com",
+            "vscode-sync.trafficmanager.net",
+            "marketplace.visualstudio.com",
+            "app.vssps.visualstudio.com",
+            "api.vstsusers.visualstudio.com",
+            "userprodweu1.vstsusers.visualstudio.com",
+            "userprodeus23.vstsusers.visualstudio.com",
+            "events.gfe.nvidia.com",
+            "lightstep.kaizen.nvidia.com",
+            "gx-target-experiments-frontend-api.gx.nvidia.com",
+            "gfwsl.geforce.com",
+            "static.nvidiagrid.net",
+            "widget.intercom.io",
+            "js.intercomcdn.com",
+            "api-iam.intercom.io",
+            "nexus-websocket-a.intercom.io",
+            "ad.foxitsoftware.com",
+            "cws.connectedpdf.com",
+            "jaeger-dashboard-us.connectedpdf.com",
+            "api.segment.io",
+            "assets.adobedtm.com",
+            "rum8.perf.linkedin.com",
+            "rum.hlx.page",
+            "sentry.io",
+            "cdn-dynmedia-1.microsoft.com",
+            "targetednotifications-tm.trafficmanager.net",
+            "ctldl.windowsupdate.com",
+            "cdn.winget.microsoft.com",
+            "download.windowsupdate.com",
+            "fe2cr.update.microsoft.com",
+            "au.download.windowsupdate.com",
+            "slscr.update.microsoft.com",
+            "vsblobprodscussu5shard67.blob.core.windows.net",
+            "vsblob.vsassets.io",
+            "config.edge.skype.com",
+            "binaries.templates.cdn.office.net",
+            "metadata.templates.cdn.office.net",
+            "cdn.create.microsoft.com",
+            "store-images.microsoft.com",
+            "store-images.s-microsoft.com",
+            "akamai.net",
+            "akamaiedge.net",
+            "akamaized.net",
+            "edge.microsoft.com",
+            "static.edge.microsoftapp.net",
+            "img-prod-cms-rt-microsoft-com.akamaized.net",
+            "ipw.gfdv54cvghhgfhgj-njhgj64.info",
+            "kalhivi-clinic.com",
+            "vikasdiagnostics.com",
+            "ahuhastanesi.com",
+            "g.bing.com",
+            "b9d9700dffccce4cf8ffe8e5ef96d0c6.azr.footprintdns.com",
+            "ee6dfaa2595125c04221c58f9c46c111.clo.footprintdns.com",
+            "6251144b97aa4d25499f7a4406dd886b.azr.footprintdns.com",
+            "00617acd4f49453b83d7bed17af88734.azr.footprintdns.com",
         )
 
         ip_addresses = (
@@ -730,7 +723,7 @@ def setup_logging():
         )
     )
     logger.info(platform.uname())
-    logger.info("DisableWinTracking version {v}".format(v=dwt_about.__version__))
+    logger.info("DisableWinTracking")
 
 
 def exception_hook(error, value, trace):
@@ -796,6 +789,5 @@ if __name__ == "__main__":
     console = ConsoleDialog(sys.stdout)
     setup_logging()
     sys.excepthook = exception_hook
-    dwt_about.update_check(None)
     frame.Show()
     wx_app.MainLoop()
